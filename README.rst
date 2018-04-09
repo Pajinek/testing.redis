@@ -34,6 +34,12 @@ Create Redis instance using ``testing.redis.RedisServer``::
 
   # Redis server is terminated here
 
+The aioredis (async redis) supposes difference format of param for initialization ::
+
+  ...
+  r = await aioredis.create_redis(redis_server.url)
+  ...
+
 
 ``testing.redis`` automatically searchs for redis-server from ``$PATH``.
 If you install redis to other directory, set ``redis_server`` keyword::

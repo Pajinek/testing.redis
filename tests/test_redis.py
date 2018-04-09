@@ -23,6 +23,7 @@ class TestRedisServer(unittest.TestCase):
         self.assertIsNotNone(redis)
         self.assertEqual(redis.dsn(),
                          dict(host='127.0.0.1', port=redis.redis_conf['port'], db=0))
+        self.assertEqual(redis.url, 'redis://127.0.0.1:{port}'.format(port=redis.redis_conf['port']))
 
         # connect to redis
         r = Redis(**redis.dsn())

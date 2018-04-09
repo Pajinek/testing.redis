@@ -55,6 +55,10 @@ class RedisServer(Database):
 
         return params
 
+    @property
+    def url(self):
+        return "redis://{host}:{port}".format(**self.dsn())
+
     def get_data_directory(self):
         return os.path.join(self.base_dir, 'data')
 
